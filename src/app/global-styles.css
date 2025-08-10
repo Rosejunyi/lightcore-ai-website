@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  /* 主色调：纯白色或极浅的暖灰色背景 */
+  --background: #FFFFFF;
+  --background-warm: #F5F5F5;
+  --background-warm-light: #FAFAFA;
+
+  /* 强调色：活力科技蓝 */
+  --tech-blue: #007AFF;
+  --tech-blue-light: #00BFFF;
+  --tech-blue-dark: #0066CC;
+
+  /* 强调色：清澈AI绿 */
+  --ai-green: #34C759;
+  --ai-green-light: #00CC44;
+
+  /* CTA渐变色：柔和的橙/金 */
+  --warm-orange: #FF9500;
+  --warm-gold: #FFCC00;
+
+  /* 文本颜色 */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #888888;
+  --text-light: #CCCCCC;
+
+  /* 边框和分割线 */
+  --border-default: #E5E5E5;
+  --border-light: #F0F0F0;
+  --border-muted: #D1D5DB;
+}
+
+/* 禁用深色模式，保持明亮洁净的浅色调 */
+* {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-secondary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 科技感动画效果 */
+.tech-glow {
+  box-shadow: 0 0 20px rgba(0, 122, 255, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.tech-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 122, 255, 0.25);
+}
+
+.ai-glow {
+  box-shadow: 0 0 20px rgba(52, 199, 89, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.ai-glow:hover {
+  box-shadow: 0 0 30px rgba(52, 199, 89, 0.25);
+}
+
+/* 按钮点击反馈 */
+.btn-feedback {
+  transform: scale(1);
+  transition: transform 0.1s ease-in-out;
+}
+
+.btn-feedback:active {
+  transform: scale(0.98);
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* 全局动画和过渡效果 */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* 微动画：元素进入视野的平滑过渡 */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 渐变文字效果 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--tech-blue), var(--tech-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, var(--warm-orange), var(--warm-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 脉动效果 */
+.pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 浮动效果 */
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* 高级动画效果 */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* 阴影效果 */
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-tech {
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.2);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

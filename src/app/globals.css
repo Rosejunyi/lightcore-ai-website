@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 背景与文本 */
+  --background: #FFFFFF;
+  --background-warm: #F5F5F5;
+  --background-warm-light: #FAFAFA;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #888888;
+  --text-light: #CCCCCC;
+
+  /* 强调色 */
+  --tech-blue: #007AFF;
+  --tech-blue-light: #00BFFF;
+  --ai-green: #34C759;
+  --warm-orange: #FF9500;
+  --warm-gold: #FFCC00;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-secondary);
+  font-family: Inter, Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* 微动画与交互反馈 */
+* { transition: all .2s ease-in-out; }
+.btn-feedback:active { transform: scale(0.98); }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -10px rgba(0,0,0,.08) }
+
+/* 渐变文字 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--tech-blue), var(--tech-blue-light));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.cta-gradient { background-image: linear-gradient(135deg, var(--warm-orange), var(--warm-gold)); }
+
+/* 轻量动效 */
+.animate-fade-in { animation: fadeIn .6s ease-out both }
+.animate-slide-up { animation: slideUp .6s ease-out both }
+.animate-float { animation: float 3s ease-in-out infinite }
+
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+@keyframes slideUp { from {opacity:0; transform: translateY(16px)} to {opacity:1; transform:none} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* 滚动条优化 */
+::-webkit-scrollbar { width:8px }
+::-webkit-scrollbar-track { background: var(--background-warm) }
+::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 6px }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted) }
